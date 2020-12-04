@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/philipmarz73/Burgers-App/issues"
   },
-  "homepage": "https://github.com/philipmarz73/Burgers-App#readme"
+  "homepage": "https://github.com/philipmarz73/Burgers-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
