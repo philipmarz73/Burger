@@ -1,13 +1,15 @@
 $(function() {
     $(".change-devour").on("click", function(event) {
+      event.preventDefault()
       const id = $(this).data("id");
-      const newDevour = $(this).data("newDevour");
+      
   
       var newDevourState = {
         devoured: true
-  console.log("clicked")
+      };
+      console.log("clicked");
       // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
+      $.ajax("/burgers/" + id, {
         type: "PUT",
         data: newDevourState
       }).then(
@@ -23,13 +25,13 @@ $(function() {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
-      let newBurger = {
+      const newBurger = {
         name: $("#burger").val().trim(),
         devoured: $("[name=devoured]:checked").val().trim()
       };
       console.log(newBurger);
       // Send the POST request.
-      $.ajax("/api/burgers", {
+      $.ajax("/burgers", {
         type: "POST",
         data: newBurger
       }).then(

@@ -3,8 +3,8 @@
 <h2>Burgers that are not devoured!</h2>
 
 <ul>
-  {{#each burgers}}
-    {{#unless devoured}}
+  {{#each burger_data}}
+    {{#unless this.devoured}}
       {{> burgers/burger-block devoured=true}}
     {{/unless}}
   {{/each}}
@@ -13,26 +13,26 @@
 <h2>Burgers were devoured!</h2>
 
 <ul>
-  {{#each burgers}}
-    {{#if devoured}}
+  {{#each burger_data}}
+    {{#if this.devoured}}
       {{> burgers/burger-block devoured=false}}
     {{/if}}
   {{/each}}
 </ul>
 
 <h2>Add a Burger</h2>
-<form class="create-form">
+<form class="create-form" action = "/burgers/create" method = "POST">
 
   <div class="form-group">
     <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="name">
+    <input type="text" id="burger" name="burger_name">
   </div>
 
-  <div class="form-group">
+  {{!-- <div class="form-group">
     <label for="devoured">Devoured?</label><br>
     <input type="radio" name="devoured" value="1" checked> Devoured!<br>
     <input type="radio" name="devoured" value="0"> Waiting To Be Eaten
-  </div>
+  </div> --}}
 
   <button type="submit">Add Burger</button>
 </form>
